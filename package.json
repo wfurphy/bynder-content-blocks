@@ -1,7 +1,7 @@
 {
   "name": "bynder-content-blocks",
-  "version": "1.0.0",
-  "description": "Content Blocks for Content Workflow by Bynder. Use a master Template to create Content Blocks then create content Items with fields pre-populated with block content.",
+  "version": "1.1.0",
+  "description": "A Proof of Concept: Content Blocks for Content Workflow by Bynder. Use a master Template to create Content Blocks then create content Items with fields pre-populated with block content.",
   "author": {
     "name": "Will Furphy",
     "url": "https://github.com/wfurphy"
@@ -10,7 +10,8 @@
   "type": "module",
   "main": "create.js",
   "scripts": {
-    "start": "node create.js"
+    "start": "node create.js",
+    "start-advanced": "node create-advanced.js"
   },
   "dependencies": {
     "axios": "^1.8.4",

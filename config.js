@@ -45,7 +45,7 @@ export const CBCWConfig = {
    * @property {number} MASTER - ID for the master Template (.env: MASTER_TEMPLATE_ID)
    */
   TEMPLATES: {
-    MASTER: Number(process.env.MASTER_TEMPLATE_ID),
+    MASTER: Number(process.env.MASTER_TEMPLATE_ID), // KEEP THIS ONE AND ADD TO .env
     PRODUCT: 3240083, // @TODO REPLACE WITH YOURS
     // ADD MORE HERE
   },
