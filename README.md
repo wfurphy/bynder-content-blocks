@@ -1,5 +1,5 @@
 
-# Content Blocks for Content Workflow by Bynder
+# Content Blocks for Bynder's Content Workflow
 
 This NodeJS sample application is intended as middleware between any application in a MarTech ecosystem and Bynder's Content Workflow. It shows how to use **guidelines** fields in a master **Template** as predefined **Content Blocks** to populate editable **text** fields in a new content **Items**.
 
@@ -23,7 +23,9 @@ _I have built this example for a customer who wishes to use raw HTML in the bloc
 
 ### Master Template
 
-Create a master Template in your Content Workflow project. Create a **guidelines** field for each piece of content you wish to use as a **Content Block** and label them with a unique name. You can create multiple **Groups** (tabs) if you want to create variations of the content. Name them with unique, clear names. The field labels only need to be unique within their Group.
+1. Create a master Template in your Content Workflow project.
+2. Create a **guidelines** field for each piece of content you wish to use as a **Content Block** and label them with a unique name.
+3. (Optional) You can create multiple **Groups** (tabs) if you want to create variations of the content, for example product categories. The field labels only need to be unique within their Group.
 
 _In this example I created a template with a Group (tab) for each product category and then **guidelines** fields for each field I wanted to pre-populate in those Groups. Two of the fields are populated with raw HTML code to give strict control over what HTML is used but the third is using the standard WYSIWYG content which will output as HTML but gives a better experience for the user._
 
@@ -34,7 +36,8 @@ _In this example I created a template with a Group (tab) for each product catego
 
 ### Templates
 
-Create your Templates for the Items you'll be creating. If you want to populate a **text** field with a Content Block ensure that it has the exact same label as the Guidelines field in the Master Template.
+1. Create any Templates for the content Items you'll be creating, for example the product page template.
+2. If you want to populate a **text** field with a **Content Block** ensure that it has the exact same label as the guidelines field in the Master Template.
 
 _In this template example the top two fields will match with my Content Blocks._
 
@@ -139,15 +142,17 @@ _In this template example the top two fields will match with my Content Blocks._
    );
    ```
 
-   You call `createItem()` as many times as you need to create more Items for the same project.
+   You can call `createItem()` as many times as you need to create more Items for the same project and Master Template.
 
-   > :raising_hand: If you need, you could modify the code so you can specify the `projectId` and `masterTemplateId` each call rather than have them set at the app level.
+   > :raising_hand: If you need to create multiple Items from different projects or with different Master Templates then have a look at the `create-advanced.js` file.
 
 2. Go back to the CLI and run:
 
    ```sh
    npm run start
    ```
+
+   > :raising_hand: You can run `npm run start-advanced` for the advanced Item creation mentioned above.
 
 3. If you see a positive response object in the CLI then you should be able to find your new Item in your Content Workflow project with the matching text fields populated from your Content Blocks. And that's it, you created **Content Blocks** that can be managed in Content Workflow and created a new content Item pre-populated with editable sample content.
 
