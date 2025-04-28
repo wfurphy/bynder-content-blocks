@@ -5,9 +5,6 @@ import 'dotenv/config';
  * Configuration for Bynder Content Blocks
  * @type {Object}
  * @property {string} BASE_URL - Base URL for Content Workflow API (default: https://api.gathercontent.com) {@link BASE_URL}
- * @property {Object} AUTH - Authentication foe Content Workflow API {@link AUTH}
- * @property {string} AUTH.EMAIL - Content Workflow Email (.env: EMAIL)
- * @property {string} AUTH.API_KEY - Content Workflow API Key (.env: API_KEY)
  * @property {number} PROJECT_ID - Content Workflow Project ID (.env: PROJECT_ID)
  * @property {string} ITEM_NAME - The name of the Item to be created (.env: ITEM_NAME) {@link ITEM_NAME}
  * @property {Object} TEMPLATES - Template IDs used for different content types {@link TEMPLATES}
@@ -24,18 +21,6 @@ export const CBCWConfig = {
    * @see {@link https://docs.gathercontent.com/reference/getting-started}
    */
   BASE_URL: encodeURI(process.env.BASE_URL ?? 'https://api.gathercontent.com'),
-
-  /**
-   * Authentication configuration (Default from .env)
-   * @type {Object}
-   * @property {string} EMAIL - Email address for authentication
-   * @property {string} API_KEY - API key for authentication
-   * @see {@link https://docs.gathercontent.com/reference/authentication}
-   */
-  AUTH: {
-    EMAIL: process.env.EMAIL,
-    API_KEY: process.env.API_KEY,
-  },
 
   /**
    * Project ID

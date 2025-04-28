@@ -2,8 +2,14 @@ import { CWBlocks } from './lib/cwblocks.js';
 import { Item } from './lib/item.js';
 
 try {
-  // Set up the CW Blocks instance and authenticate with environment variables
-  const cb = new CWBlocks(process.env.EMAIL, process.env.API_KEY);
+  /**
+   * Set up the CW Blocks instance and authenticate with environment variables
+   * @see {@link https://github.com/wfurphy/bynder-content-blocks}
+   */
+  const cb = new CWBlocks(
+    process.env.EMAIL,    //::> Email address
+    process.env.API_KEY   //::> API Key
+  );
 
   /**
    * Below is an advanced example of creating an item with content blocks.

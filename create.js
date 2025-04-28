@@ -1,8 +1,14 @@
 import { CWBlocks } from './lib/cwblocks.js';
 
 try {
-  // Set up the CW Blocks instance and authenticate with environment variables
-  const cb = new CWBlocks(process.env.EMAIL, process.env.API_KEY);
+  /**
+   * Set up the CW Blocks instance and authenticate with environment variables
+   * @see {@link https://github.com/wfurphy/bynder-content-blocks}
+   */
+  const cb = new CWBlocks(
+    process.env.EMAIL,    //::> Email address
+    process.env.API_KEY   //::> API Key
+  );
 
   /**
    * Create new item with the matching fields populated from Content Blocks
