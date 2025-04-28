@@ -11,13 +11,13 @@ try {
    * @see {@link CWBlocks.CONFIG}
    */
   const output = await cb.createItem(
-    CWBlocks.CONFIG.ITEM_NAME,           //::> Item Name
+    cb.getUniqueItemName(),              //::> Item Name
     CWBlocks.CONFIG.TEMPLATES.PRODUCT,   //::> Template ID
     CWBlocks.CONFIG.GROUPS.PRODUCT_ONE,  //::> Master Template Group Name (Optional)
   );
 
-  console.log('::| BynderContentBlocks |::::>', output);
+  console.log('::BynderContentBlocks::| Item Created |::>', output);
 
 } catch (error) {
-  console.error('::| BynderContentBlocks |::ERROR::>', error.message);
+  console.error('::BynderContentBlocks::| ERROR |::>', error);
 }

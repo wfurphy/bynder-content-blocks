@@ -13,23 +13,24 @@ try {
    * @see {@link CWBlocks.create}
    * @see {@link Item}
    * */
-  // Create template object from template ID
-  const template = await cb.getTemplate(CWBlocks.CONFIG.TEMPLATES.PRODUCT);
+  // Create Template object from any Template ID
+  const template = await cb.getTemplate(3240083); //::> Template ID
   // Create a new Item
   const item = new Item(
-    'The Product Name',                  //::> Item Name
-    CWBlocks.CONFIG.PROJECT_ID,          //::> Project ID
-    template,                            //::> Template object created from the above
-    CWBlocks.CONFIG.GROUPS.PRODUCT_TWO,  //::> Master Template Group Name (Optional)
+    cb.getUniqueItemName('The Product Name'),  //::> Item Name
+    393102,                                    //::> Project ID
+    template,                                  //::> Template object (created above)
+    'Product Two',                             //::> Master Template Group name (Optional)
   );
-  // include the masterTemplateId when getting the content blocks
-  await cb.getContentBlocks(item, 3263673);
+  // Include the Master Template ID when getting the content blocks
+  await cb.getContentBlocks(item, 3263673); //::> Master Template ID
+  // Create the item in Content Workflow
   const outputAdv = await cb.create(item);
 
-  console.log('::| BynderContentBlocks Advanced |::::>', outputAdv);
+  console.log('::BynderContentBlocks::| Advanced Item Created |::>', outputAdv);
 
 } catch (error) {
-  console.error('::| BynderContentBlocks |::ERROR::>', error.message);
+  console.error('::BynderContentBlocks::| ERROR |::>', error);
 }
 
 
