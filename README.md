@@ -132,7 +132,16 @@ _In this template example the top two fields will match with my Content Blocks._
    );
    ```
 
-   If you don't want to use the constant helpers then this may look like:
+   > :raising_hand: You can use the helper method `getUniqueItemName([name=CONFIG.ITEM_NAME])` to generate an Item name with a timestamp. You can provide a name parameter or it will default to the `ITEM_NAME` in your config.
+
+   ```js
+   const response = await cb.createItem(
+     cb.getUniqueItemName(),              //::> Item Name
+     CWBlocks.CONFIG.TEMPLATES.PRODUCT,   //::> Template ID
+   // ...
+   ```
+
+   If you don't want to use the constant helpers then your `createItem()` call may look like:
 
    ```js
    const response = await cb.createItem(
@@ -142,7 +151,7 @@ _In this template example the top two fields will match with my Content Blocks._
    );
    ```
 
-   You can call `createItem()` as many times as you need to create more Items for the same project and Master Template.
+   You can call `createItem()` from a loop or as many times as you need to create more Items for the same Project and Master Template.
 
    > :raising_hand: If you need to create multiple Items from different projects or with different Master Templates then have a look at the `create-advanced.js` file.
 

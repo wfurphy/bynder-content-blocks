@@ -1,8 +1,14 @@
 import { CWBlocks } from './lib/cwblocks.js';
 
 try {
-  // Set up the CW Blocks instance and authenticate with environment variables
-  const cb = new CWBlocks(process.env.EMAIL, process.env.API_KEY);
+  /**
+   * Set up the CW Blocks instance and authenticate with environment variables
+   * @see {@link https://github.com/wfurphy/bynder-content-blocks}
+   */
+  const cb = new CWBlocks(
+    process.env.EMAIL,    //::> Email address
+    process.env.API_KEY   //::> API Key
+  );
 
   /**
    * Create new item with the matching fields populated from Content Blocks
@@ -11,13 +17,13 @@ try {
    * @see {@link CWBlocks.CONFIG}
    */
   const output = await cb.createItem(
-    CWBlocks.CONFIG.ITEM_NAME,           //::> Item Name
+    cb.getUniqueItemName(),              //::> Item Name
     CWBlocks.CONFIG.TEMPLATES.PRODUCT,   //::> Template ID
     CWBlocks.CONFIG.GROUPS.PRODUCT_ONE,  //::> Master Template Group Name (Optional)
   );
 
-  console.log('::| BynderContentBlocks |::::>', output);
+  console.log('::BynderContentBlocks::| Item Created |::>', output);
 
 } catch (error) {
-  console.error('::| BynderContentBlocks |::ERROR::>', error.message);
+  console.error('::BynderContentBlocks::| ERROR |::>', error);
 }

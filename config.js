@@ -4,40 +4,37 @@ import 'dotenv/config';
  * CBCWConfig
  * Configuration for Bynder Content Blocks
  * @type {Object}
- * @property {Object} AUTH - Authentication foe Content Workflow API {@link AUTH}
- * @property {string} AUTH.EMAIL - Content Workflow Email (.env: EMAIL)
- * @property {string} AUTH.API_KEY - Content Workflow API Key (.env: API_KEY)
+ * @property {string} BASE_URL - Base URL for Content Workflow API (default: https://api.gathercontent.com) {@link BASE_URL}
  * @property {number} PROJECT_ID - Content Workflow Project ID (.env: PROJECT_ID)
- * @property {Function|string} ITEM_NAME - Generates unique test item name with timestamp (.env: ITEM_NAME) {@link ITEM_NAME}
+ * @property {string} ITEM_NAME - The name of the Item to be created (.env: ITEM_NAME) {@link ITEM_NAME}
  * @property {Object} TEMPLATES - Template IDs used for different content types {@link TEMPLATES}
  * @property {number} TEMPLATES.MASTER - The master template ID (.env: MASTER_TEMPLATE_ID)
  * @property {Object} GROUPS - Group names used for different product types {@link GROUPS}
+ * @method {Function} getUniqueItemName([name]) - Generates a unique name for the Item {@link getUniqueItemName}
+ *
+ * @see {@link https://docs.gathercontent.com/reference/getting-started}
  */
 export const CBCWConfig = {
   /**
-   * Authentication configuration (Default from .env)
-   * @type {Object}
-   * @property {string} EMAIL - Email address for authentication
-   * @property {string} API_KEY - API key for authentication
-   * @see {@link https://docs.gathercontent.com/reference/authentication}
+   * Base URL
+   * @type {string} - Base URL for Content Workflow API (default: https://api.gathercontent.com)
+   * @see {@link https://docs.gathercontent.com/reference/getting-started}
    */
-  AUTH: {
-    EMAIL: process.env.EMAIL,
-    API_KEY: process.env.API_KEY,
-  },
+  BASE_URL: encodeURI(process.env.BASE_URL ?? 'https://api.gathercontent.com'),
 
   /**
    * Project ID
-   * @type {number}
+   * @type {number} - Project ID for the GatherContent project
    */
   PROJECT_ID: Number(process.env.PROJECT_ID),
 
   /**
-   * Generates a unique test item name with timestamp (uses env: ITEM_NAME)
-   * @returns {string} Test item name with current timestamp
+   * Item name
+   * @type {string} - Name of the test item (env: ITEM_NAME, default: 'Test Item')
+   * Used for creating a new item in the project and in ITEM_NAME_DT to create a unique name
+   * @see {@link ITEM_NAME_DT}
    */
-  ITEM_NAME: (() => `${process.env.ITEM_NAME ?? 'Test Item'} ${new Date().getTime()}`)(),
-  // ITEM_NAME: process.env.ITEM_NAME ?? 'Test Item', // Can uncomment and replace above with a static name
+  ITEM_NAME: process.env.ITEM_NAME ?? 'Test Item',
 
   /**
    * Template IDs used for different content types
